@@ -76,9 +76,10 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
 		sec--;
 		if (sec === 0) {
 			sec = 15;
-			pos = apple.destory();
+            _info = apple.destory();
+            apples.pos = _info.pos;
 			timerID.innerHTML = '00:00';
-			setTimeout(({}), 1000);
+			setTimeout(1000);
 		}
 		timerID.innerHTML = `00:${ sec.toString().padStart(2, '0') }`;
 	}

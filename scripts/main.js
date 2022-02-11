@@ -8,7 +8,7 @@ requirejs.config({
 });
 require(['jquery', 'game'], function ($, game) {
 	/** Test if scripts have loaded */
-	const version = '0.1.20';
+	const version = '0.1.21';
 	const canvas = document.getElementById('scene');
 	/** sets all canvas info for other scripts */
 	let cInfo = { 
