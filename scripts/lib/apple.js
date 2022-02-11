@@ -6,7 +6,7 @@ define(function () {
 	let ctx;
 	let pos;
 	function genPos() { // generate random position
-		let _pos = Math.floor((Math.random() * 490) + 15);
+		let _pos = Math.floor(Math.random() * 400);
 		// if (225 < pos && pos < 285) {
 		// 	genPos();
 		// } else {

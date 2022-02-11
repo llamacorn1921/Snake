@@ -61,7 +61,7 @@ define(function () {
                         update(0, -5);
                         break;
                     case 'ArrowDown':
-                        if (snake.y > 585) {
+                        if (snake.y > 485) {
                             killed = true;
                             destroy();
                             break;
@@ -77,7 +77,7 @@ define(function () {
                         update(-5, 0);
                         break;
                     case 'ArrowRight':
-                        if (snake.x > 585) {
+                        if (snake.x > 485) {
                             killed = true;
                             destroy();
                             break;

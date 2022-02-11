@@ -7,9 +7,11 @@ requirejs.config({
     waitSeconds: 5
 });
 require(['jquery', 'game'], function ($, game) {
+	/** Test if scripts have loaded */
 	const version = '0.1.0';
 	const canvas = document.getElementById('scene');
-	let cInfo = {
+	/** sets all canvas info for other scripts */
+	let cInfo = { 
 		canvas: canvas,
 		width: canvas.offsetWidth,
 		height: canvas.offsetHeight,
@@ -17,10 +19,12 @@ require(['jquery', 'game'], function ($, game) {
 	};
 	$(document).ready(() => {
 		$("#version").text(version);
+		/** start game / send info to game files */
 		game.init(cInfo);
 		
 		$(document).keydown((e) => {
-			game.input(e.key);
+			/** get user input */
+			game.input(e.key); 
 		});
     });
 });
