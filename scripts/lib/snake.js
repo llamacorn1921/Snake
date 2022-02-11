@@ -10,7 +10,7 @@ define(function () {
 		width: 20,
 		height: 20,
 	};
-	let face = { // ignore
+	let face = { // ignore. for future stuff
 		eyes: {
 			width: 5,
 			height: 5,

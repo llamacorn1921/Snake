@@ -4,6 +4,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     let _info;
     let eaten = false;
     let score = 1;
+    /** snke info */
     let snakeStatus = {
         width: 20,
         height: 20,
@@ -12,6 +13,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             y: null
         }
     };
+    /** apple info */
     let apples = {
         width: 5,
         height: 5,
@@ -21,7 +23,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
         }
     };
 
-    function clear() {
+    function clear() { /**reset for render */
         ctx.clearRect(0, 0, cInfo.width, cInfo.height);
     }
     function draw() {
@@ -32,11 +34,13 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
         apple.draw();
 
     }
+    /** render */
     function loop() {
         clear();
         draw();
         window.requestAnimationFrame(loop);
     }
+    /** sets up reset button */
     document.getElementById('reset').addEventListener('click', () => {
         snake.reset();
         _info = apple.destroy();
@@ -47,12 +51,14 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
         $("#score").text(0);
     });
 
+    /** detects if snake is at apple */
+    /* WARNING: must have only one apple each time or collision wont work */
     function collision() {
         if (
             apples.pos.x < snakeStatus.pos.x + snakeStatus.width && apples.pos.x + apples.width > snakeStatus.pos.x &&
             apples.pos.y < snakeStatus.pos.y + snakeStatus.height && apples.pos.y + apples.height > snakeStatus.pos.y
         ) {
-            if (eaten === false) {
+            if (eaten === false) { // not being used yet
                 eaten = true;
                 console.log('Snake has eaten the apple');
             }
