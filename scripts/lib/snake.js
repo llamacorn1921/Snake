@@ -42,7 +42,8 @@ define(function () {
             draw();
             return { x: snake.x, y: snake.y }; // updates snakes pos in game file
 		},
-		reset: function () { // ignore
+        reset: function () { // ignore
+            killed = false;
 			snake.x = def.x;
 			snake.y = def.y;
             posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`;
