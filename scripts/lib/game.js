@@ -1,4 +1,4 @@
-define(['jquery', './lib/snake', './lib/apple', './lib/util'], function ($, snake, apple, util) {
+define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     let cInfo;
     let ctx;
     let _info;
@@ -70,6 +70,18 @@ define(['jquery', './lib/snake', './lib/apple', './lib/util'], function ($, snak
             $('#score').text(score++);
         }
     }
+    const timerID = document.getElementById('timer');
+    let sec = 15;
+	function time () {
+		sec--;
+		if (sec === 0) {
+			sec = 15;
+			pos = apple.destory();
+			timerID.innerHTML = '00:00';
+			setTimeout(({}), 1000);
+		}
+		timerID.innerHTML = `00:${ sec.toString().padStart(2, '0') }`;
+	}
     return {
         init: function (c) {
             
@@ -84,7 +96,7 @@ define(['jquery', './lib/snake', './lib/apple', './lib/util'], function ($, snak
             console.log(apples);
             snake.init(c.ctx);
             loop();
-            util.timer();
+            setInterval(time, 1000);
         },
         input: function (e) {
             snake.move(e);
