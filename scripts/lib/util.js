@@ -7,6 +7,7 @@ define(function() {
 			sec = 15;
 			// apple.destory()
 			timerID.innerHTML = '00:00';
+			setTimeout(({}), 1000);
 		}
 		timerID.innerHTML = `00:${ sec.toString().padStart(2, '0') }`;
 	}
