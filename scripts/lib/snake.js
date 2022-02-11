@@ -43,6 +43,7 @@ define(function () {
             return { x: snake.x, y: snake.y }; // updates snakes pos in game file
 		},
         reset: function () { // ignore
+            posDis.innerHTML = "Game Rest";
             killed = false;
 			snake.x = def.x;
 			snake.y = def.y;
@@ -55,6 +56,7 @@ define(function () {
                 switch (key) {
                     case 'ArrowUp':
                         if (snake.y < 0) {
+                            posDis.innerHTML = "Snake Dead";
                             killed = true;
                             destroy();
                             break;
@@ -63,6 +65,7 @@ define(function () {
                         break;
                     case 'ArrowDown':
                         if (snake.y > 485) {
+                            posDis.innerHTML = "Snake Dead";
                             killed = true;
                             destroy();
                             break;
@@ -71,6 +74,7 @@ define(function () {
                         break;
                     case 'ArrowLeft':
                         if (snake.x < 0) {
+                            posDis.innerHTML = "Snake Dead";
                             killed = true;
                             destroy();
                             break;
@@ -79,6 +83,7 @@ define(function () {
                         break;
                     case 'ArrowRight':
                         if (snake.x > 485) {
+                            posDis.innerHTML = "Snake Dead";
                             killed = true;
                             destroy();
                             break;
