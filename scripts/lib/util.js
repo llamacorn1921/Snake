@@ -1,12 +1,11 @@
-define(function() {
+define(['./lib/apple'], function(apple) {
 	const timerID = document.getElementById('timer');
-	let app
 	let sec = 15;
 	function time () {
 		sec--;
 		if (sec === 0) {
 			sec = 15;
-			app.destory()
+			apple.destory();
 			timerID.innerHTML = '00:00';
 			setTimeout(({}), 1000);
 		}
@@ -14,8 +13,7 @@ define(function() {
 	}
 
 	return {
-		timer: function (apple) {
-			app = apple;
+		timer: function () {
 			setInterval(time, 1000);
 		}
 	}
