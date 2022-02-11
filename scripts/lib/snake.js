@@ -11,7 +11,6 @@ define(function () {
 		width: 20,
 		height: 20,
 	};
-    let killed = false;
     let alive = true;
     let dir = 'up';
     function setDir (d) {
@@ -35,7 +34,7 @@ define(function () {
         while (alive) {
             switch (dir) {
                 case 'up':
-                    updae(0, -5);
+                    update(0, -5);
                     break;
                 case 'down':
                     update(0, 5);
