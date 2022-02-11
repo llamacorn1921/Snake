@@ -14,7 +14,7 @@ define(function () {
     let alive = true;
     let dir = 'up';
     function setDir (d) {
-        let dir = d;
+        dir = d;
         dirID.innerHTML = d;
     }
     function destroy() {
@@ -58,6 +58,7 @@ define(function () {
 		},
 		draw: function () { //  draws snake
             draw();
+            posID.innerHTML = `X: ${ snake.x }, Y: ${ snake.y }`;
             return { x: snake.x, y: snake.y }; // updates snakes pos in game file
 		},
         reset: function () { // resets snakes
