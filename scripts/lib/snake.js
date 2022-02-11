@@ -15,7 +15,7 @@ define(function () {
     let dir = 'up';
     function setDir (d) {
         dir = d;
-        dirID.innerHTML = d;
+        dirID.innerHTML = dir;
     }
     function destroy() {
         alive = false;
@@ -28,7 +28,7 @@ define(function () {
 	function update(x, y) { // updates x or y
 		snake.x += x;
         snake.y += y;
-		posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
+		// posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
     }
     function run () {
         while (alive) {
