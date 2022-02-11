@@ -9,7 +9,6 @@ requirejs.config({
 });
 require(['jquery', 'game'], function ($, game) {
 	/** Test if scripts have loaded */
-	const version = '0.1.36';
 	const canvas = document.getElementById('scene');
 	/** sets all canvas info for other scripts */
 	let cInfo = { 
@@ -19,8 +18,6 @@ require(['jquery', 'game'], function ($, game) {
 		ctx: canvas.getContext('2d')
 	};
 	$(document).ready(() => {
-		$("#version").text(version);
-		/** start game / send info to game files */
 		game.init(cInfo);
 		
 		$(document).keydown((e) => {

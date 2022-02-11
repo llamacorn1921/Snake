@@ -1,4 +1,4 @@
-define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
+define(['./lib/snake', './lib/apple'], function (snake, apple) {
     let cInfo;
     let ctx;
     let _info;
@@ -41,14 +41,12 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     }
     /** sets up reset button */
     document.getElementById('reset').addEventListener('click', () => {
-        sec = 15;
-        timer();
         snake.reset();
         _info = apple.destroy();
         apples.pos = _info.pos;
         eaten = _info.eaten;
         score = 1;
-        $("#score").text(0);
+        document.getElementById('score').innerHTML = 0;
     });
     /** detects if snake is at apple */
     /* WARNING: must have only one apple each time or collision wont work */
@@ -64,7 +62,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             _info = apple.destroy();
             apples.pos = _info.pos;
             eaten = _info.eaten;
-            $('#score').text(score++);
+            document.getElementById('score').innerHTML = score++;
         }
     }
     return {
