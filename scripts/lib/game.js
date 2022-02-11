@@ -15,8 +15,8 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     };
     /** apple info */
     let apples = {
-        width: 5,
-        height: 5,
+        width: 11,
+        height: 11,
         pos: {
             x: null,
             y: null

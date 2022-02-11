@@ -1,7 +1,7 @@
 define(function () {
 	const apple = { // apple size
-		width: 5,
-		height: 5
+		width: 11,
+		height: 11
 	};
 	let ctx;
 	let pos;
