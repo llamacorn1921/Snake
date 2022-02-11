@@ -2,21 +2,15 @@ define(function () {
 	const def = { // default pos
 		x: 250,
 		y: 250,
-	};
-	const posDis = document.getElementById('snakeCords'); // ignore
+    };
+    let ctx;
+    const posDis = document.getElementById('snakeCords'); // ignore
 	let snake = { // start pos and size
 		x: 250,
 		y: 250,
 		width: 20,
 		height: 20,
 	};
-	let face = { // ignore. for future stuff
-		eyes: {
-			width: 5,
-			height: 5,
-		},
-	};
-	let ctx;
     let killed = false;
     let dead = false;
     function destroy() {

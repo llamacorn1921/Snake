@@ -38,16 +38,6 @@ define(function () {
 			ctx.fillStyle = '#ff0000';
 			ctx.fillRect(pos.x, pos.y, apple.width, apple.height);
 		},
-		timed: function () {
-			let sec = 5;
-			setTimeout(() => {
-				if (sec === 0) {
-					sec = 0;
-					newApple();
-				}
-				sec--;
-			}, 1000);
-		},
 		destroy: function () { // will be used when snake eats one
 			console.log('apple destory');
 			ctx.clearRect(pos.x, pos.y, apple.width, apple.height);
