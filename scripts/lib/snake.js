@@ -7,17 +7,19 @@ define(function () {
 	};
 	let snake = {
 		// start pos and size
-		x: 250,
-		y: 250,
+		pos: {
+			x: 250,
+			y: 250,
+		},
 		width: 20,
 		height: 20,
 	};
-	let alive = false;
-	let start = false;
+	let alive = true;
+	let dead = false;
+	let deathMessage = false;
 	/**@type {string} */
 	let direction = null;
 	function getDirection() {
-
 		if (alive) {
 			switch (direction) {
 				case 'up':
@@ -29,31 +31,61 @@ define(function () {
 				case 'right':
 					return { x: 1, y: 0 };
 				case null:
-					return { x: 0,y: 0 };
+					return { x: 0, y: 0 };
 				default:
 					break;
 			}
 		}
 	}
 	function destroy() {
-		alive = false;
+		// alive = false;
+		dead = true;
+		if (!deathMessage) {
+			console.error(`Snake died`);
+			deathMessage = true;
+		}
+		
 	}
-
+	function testLife() {
+		switch (alive) {
+			case snake.pos.y === 0:
+				alive = false;
+				destroy();
+				break;
+			case snake.pos.y === 480:
+				alive = false;
+				destroy();
+				break;
+			case snake.pos.x === 0:
+				alive = false;
+				destroy();
+				break;
+			case snake.pos.x === 480:
+				// snake.pos.x = 480;
+				alive = false;
+				destroy();
+				break;
+		}
+	}
 	function draw() {
 		// draw snake on each 'frame'
-		ctx.fillStyle = '#006400';
 		let pos;
 		if (alive) {
+			ctx.fillStyle = '#006400';
 			pos = getDirection();
 			ctx.fillRect(
-				(snake.x += pos.x),
-				(snake.y += pos.y),
+				(snake.pos.x += pos.x),
+				(snake.pos.y += pos.y),
 				snake.width,
 				snake.height
 			);
+			testLife();
 		}
-		// testLife();
-
+		if (dead) {
+			ctx.fillStyle = '#660000';
+			ctx.fillRect(snake.pos.x, snake.pos.y, snake.width, snake.height);
+		}
+		
 	}
 	// function update(x, y) {
 	// 	// updates x or y
@@ -61,32 +93,35 @@ define(function () {
 	// 	snake.y += y;
 	// 	// posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
 	// }
-	function run() {}
 	return {
 		// functions game script has access to
 		init: function (c) {
 			// sets ctx and creates snake
 			ctx = c;
-			c.fillRect(snake.x, snake.y, snake.width, snake.height);
+			c.fillRect(snake.pos.x, snake.pos.y, snake.width, snake.height);
 			console.log('Snake');
 		},
 		draw: function () {
 			//  draws snake
 			draw();
-			displayText.innerHTML = `X: ${snake.x}, Y: ${snake.y} | Direction: ${direction}`;
-			return { x: snake.x, y: snake.y }; // updates snakes pos in game file
+			displayText.innerHTML = `X: ${snake.pos.x}, Y: ${snake.pos.y} | Direction: ${direction}`;
+			return { x: snake.pos.x, y: snake.pos.y }; // updates snakes pos in game file
 		},
 		reset: function () {
 			// resets snakes
-			posID.innerHTML = 'Game Rest';
+			dead = false;
+			deathMessage = false;
+			displayText.innerHTML = 'Game Rest';
 			direction = null;
-			killed = false;
-			snake.x = def.x;
-			snake.y = def.y;
-			return { x: snake.x, y: snake.y };
+			
+			snake.pos.x = def.x;
+			snake.pos.y = def.y;
+			return { x: snake.pos.x, y: snake.pos.y };
 		},
 		move: function (key) {
-			alive = true;
+			if (!dead) {
+				alive = true;
+			}
 			switch (key) {
 				case 'ArrowUp':
 					direction = 'up';

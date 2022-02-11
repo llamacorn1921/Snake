@@ -3,6 +3,7 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
     let ctx;
     let _info;
     let eaten = false;
+    let status = true;
     let score = 1;
     /** snke info */
     let snakeStatus = {
@@ -35,8 +36,10 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
     }
     /** render */
     function loop() {
-        clear();
-        draw();
+        if (status) {
+            clear();
+            draw();
+        }
         window.requestAnimationFrame(loop);
     }
     /** sets up reset button */
@@ -47,6 +50,15 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
         eaten = _info.eaten;
         score = 1;
         document.getElementById('score').innerHTML = 0;
+    });
+    document.getElementById('pause').addEventListener('click', () => {
+        if (status) {
+            status = false;
+            document.getElementById('pause').innerHTML = 'Resume';
+        } else {
+            status = true;
+            document.getElementById('pause').innerHTML = 'Pause';
+        }
     });
     /** detects if snake is at apple */
     /* WARNING: must have only one apple each time or collision wont work */
