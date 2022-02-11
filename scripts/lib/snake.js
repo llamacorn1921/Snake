@@ -1,5 +1,8 @@
 define(function () {
-	const displayText = document.getElementById('snakeDis'); // span tag for snake coords
+	let dt = null;
+	function displayText() {
+		document.getElementById('snakeDis').innerHTML = dt;
+	}
 	const def = {
 		// default pos
 		x: 250,
@@ -41,7 +44,7 @@ define(function () {
 		// alive = false;
 		dead = true;
 		if (!deathMessage) {
-			console.error(`Snake died`);
+			dt = 'You killed the 🐍!!! YOU MONSTER';
 			deathMessage = true;
 		}
 		
@@ -79,6 +82,7 @@ define(function () {
 				snake.width,
 				snake.height
 			);
+			dt = `X: ${snake.pos.x}, Y: ${snake.pos.y} | Direction: ${direction}`;
 			testLife();
 		}
 		if (dead) {
@@ -87,33 +91,26 @@ define(function () {
 		}
 		
 	}
-	// function update(x, y) {
-	// 	// updates x or y
-	// 	snake.x += x;
-	// 	snake.y += y;
-	// 	// posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
-	// }
 	return {
 		// functions game script has access to
 		init: function (c) {
 			// sets ctx and creates snake
 			ctx = c;
 			c.fillRect(snake.pos.x, snake.pos.y, snake.width, snake.height);
-			console.log('Snake');
+			console.log('🐍');
 		},
 		draw: function () {
 			//  draws snake
 			draw();
-			displayText.innerHTML = `X: ${snake.pos.x}, Y: ${snake.pos.y} | Direction: ${direction}`;
+			displayText();
 			return { x: snake.pos.x, y: snake.pos.y }; // updates snakes pos in game file
 		},
 		reset: function () {
 			// resets snakes
 			dead = false;
 			deathMessage = false;
-			displayText.innerHTML = 'Game Rest';
 			direction = null;
-			
+			dt = '🐍 RESURRECTION!!!!!!!!!!! ';
 			snake.pos.x = def.x;
 			snake.pos.y = def.y;
 			return { x: snake.pos.x, y: snake.pos.y };

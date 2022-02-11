@@ -15,7 +15,6 @@ define(function () {
 		// }
 	}
 	function newApple() {
-		console.log('new pos');
 		pos = {
 			x: genPos(),
 			y: genPos()
@@ -39,7 +38,6 @@ define(function () {
 			ctx.fillRect(pos.x, pos.y, apple.width, apple.height);
 		},
 		destroy: function () { // will be used when snake eats one
-			console.log('apple destory');
 			ctx.clearRect(pos.x, pos.y, apple.width, apple.height);
 			newApple();
 			return { pos: pos, eaten: false };

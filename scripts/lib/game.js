@@ -69,7 +69,6 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
         ) {
             if (eaten === false) { // not being used yet
                 eaten = true;
-                console.log('Snake has eaten the apple');
             }
             _info = apple.destroy();
             apples.pos = _info.pos;
@@ -87,7 +86,6 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
                 ctx: c.ctx
             };
             apples.pos = apple.init(c.ctx);
-            // console.log(apples);
             snake.init(c.ctx);
             loop();
         },

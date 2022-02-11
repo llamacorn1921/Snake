@@ -1,0 +1,22 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "a snek ganme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llamacorn1921/Snake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llamacorn1921/Snake/issues"
+  },
+  "homepage": "https://github.com/llamacorn1921/Snake#readme",
+  "devDependencies": {
+    "uglify-js": "^3.15.1"
+  }
+}
