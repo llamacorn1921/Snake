@@ -12,14 +12,15 @@ define(function () {
 		height: 20,
 	};
     let killed = false;
-    let dead = false;
-    let dir;
+    let alive = true;
+    let dir = 'up';
     function setDir (d) {
         let dir = d;
         dirID.innerHTML = d;
     }
     function destroy() {
-        dead = true;
+        alive = false;
+        dirID.innerHTML = 'Click \'Reset\' to try again';
     }
     function draw() { // draw snake on each 'frame'
         ctx.fillStyle = '#006400';
@@ -29,11 +30,32 @@ define(function () {
 		snake.x += x;
         snake.y += y;
 		posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
-	}
+    }
+    function run () {
+        while (alive) {
+            switch (dir) {
+                case 'up':
+                    updae(0, -5);
+                    break;
+                case 'down':
+                    update(0, 5);
+                    break;
+                case 'left':
+                    update(-5, 0);
+                    break;
+                case 'right':
+                    update(5, 0);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 	return { // functions game script has access to
 		init: function (c) { // sets ctx and creates snake
 			ctx = c;
             c.fillRect(snake.x, snake.y, snake.width, snake.height);
+            setInterval(run, 500);
 		},
 		draw: function () { //  draws snake
             draw();
@@ -54,50 +76,35 @@ define(function () {
                     case 'ArrowUp':
                         if (snake.y < 0) {
                             posDis.innerHTML = "Snake Dead";
-                            killed = true;
                             destroy();
                             break;
                         }
                         setDir('up');
-                        update(0, -5);
                         break;
                     case 'ArrowDown':
                         if (snake.y > 485) {
                             posDis.innerHTML = "Snake Dead";
-                            killed = true;
                             destroy();
                             break;
                         }
                         setDir('down');
-                        update(0, 5);
                         break;
                     case 'ArrowLeft':
                         if (snake.x < 0) {
                             posDis.innerHTML = "Snake Dead";
-                            killed = true;
                             destroy();
                             break;
                         }
                         setDir('left');
-                        update(-5, 0);
                         break;
                     case 'ArrowRight':
                         if (snake.x > 485) {
                             posDis.innerHTML = "Snake Dead";
-                            killed = true;
                             destroy();
                             break;
                         }
                         setDir('right');
-                        update(5, 0);
                         break;
-                    case ' ':
-                        snake.x = def.x;
-                        snake.y = def.y;
-                        posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`;
-                        console.log('Snake Reset');
-                        break;
-                        setDir('Not moving');
                     default:
                         break;
                 }

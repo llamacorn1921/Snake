@@ -22,7 +22,6 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             y: null
         }
     };
-    let sec = 15;
     function clear() { /**reset for render */
         ctx.clearRect(0, 0, cInfo.width, cInfo.height);
     }
@@ -48,11 +47,9 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
         _info = apple.destroy();
         apples.pos = _info.pos;
         eaten = _info.eaten;
-        console.log(_info);
         score = 1;
         $("#score").text(0);
     });
-
     /** detects if snake is at apple */
     /* WARNING: must have only one apple each time or collision wont work */
     function collision() {
