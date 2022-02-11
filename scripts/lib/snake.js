@@ -35,36 +35,36 @@ define(function () {
 		snake.y += y;
 		// posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
 	}
-	// function run() {
-	// 	while (alive) {
-	// 		switch (direction) {
-	// 			case 'up':
-	// 				update(0, -5);
-	// 				break;
-	// 			case 'down':
-	// 				update(0, 5);
-	// 				break;
-	// 			case 'left':
-	// 				update(-5, 0);
-	// 				break;
-	// 			case 'right':
-	// 				update(5, 0);
-	// 				break;
-	// 			default:
-	// 				break;
-	// 		}
-    //     }
-    //     setTimeout(() => {
-    //         run();
-    //     }, 200);
-	// }
+	function run() {
+		while (alive) {
+			switch (direction) {
+				case 'up':
+					update(0, -5);
+					break;
+				case 'down':
+					update(0, 5);
+					break;
+				case 'left':
+					update(-5, 0);
+					break;
+				case 'right':
+					update(5, 0);
+					break;
+				default:
+					break;
+			}
+        }
+        setTimeout(() => {
+            run();
+        }, 200);
+	}
 	return {
 		// functions game script has access to
 		init: function (c) {
 			// sets ctx and creates snake
 			ctx = c;
 			c.fillRect(snake.x, snake.y, snake.width, snake.height);
-            // run();
+            run();
 		},
 		draw: function () {
 			//  draws snake
