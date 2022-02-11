@@ -70,7 +70,7 @@ define(function () {
 		},
         move: function (key) { // takes key input for snake movement
             // console.log(snake.x, snake.y); 
-            if (!killed) {
+            if (alive) {
                 switch (key) {
                     case 'ArrowUp':
                         if (snake.y < 0) {
