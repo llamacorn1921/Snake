@@ -1,11 +1,12 @@
 define(function() {
 	const timerID = document.getElementById('timer');
+	let app
 	let sec = 15;
 	function time () {
 		sec--;
 		if (sec === 0) {
 			sec = 15;
-			// apple.destory()
+			app.destory()
 			timerID.innerHTML = '00:00';
 			setTimeout(({}), 1000);
 		}
@@ -13,7 +14,8 @@ define(function() {
 	}
 
 	return {
-		timer: function () {
+		timer: function (apple) {
+			app = apple;
 			setInterval(time, 1000);
 		}
 	}
