@@ -1,14 +1,15 @@
 requirejs.config({
 	baseUrl: 'scripts',
 	paths: {
-		jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min',
+		// jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min',
+		jquery: './src/jquery',
 		game: './lib/game',
     },
     waitSeconds: 5
 });
 require(['jquery', 'game'], function ($, game) {
 	/** Test if scripts have loaded */
-	const version = '0.1.31';
+	const version = '0.1.32';
 	const canvas = document.getElementById('scene');
 	/** sets all canvas info for other scripts */
 	let cInfo = { 
