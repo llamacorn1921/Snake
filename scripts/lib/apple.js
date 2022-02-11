@@ -5,6 +5,7 @@ define(function () {
 	};
 	let ctx;
 	let pos;
+	const appleTime = document.getElementById('appleTime');
 	function genPos() { // generate random position
 		let _pos = Math.floor(Math.random() * 400);
 		// if (225 < pos && pos < 285) {
@@ -36,6 +37,16 @@ define(function () {
 		draw: function () {
 			ctx.fillStyle = '#ff0000';
 			ctx.fillRect(pos.x, pos.y, apple.width, apple.height);
+		},
+		timed: function () {
+			let sec = 5;
+			setTimeout(() => {
+				if (sec === 0) {
+					sec = 0;
+					newApple();
+				}
+				sec--;
+			}, 1000);
 		},
 		destroy: function () { // will be used when snake eats one
 			console.log('apple destory');

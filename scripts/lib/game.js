@@ -82,6 +82,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             console.log(apples);
             snake.init(c.ctx);
             loop();
+            apple.timed();
         },
         input: function (e) {
             snake.move(e);

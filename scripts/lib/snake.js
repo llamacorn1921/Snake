@@ -100,6 +100,9 @@ define(function () {
                         break;
                 }
             }
-		},
+        },
+        eat: function () {
+            
+        }
 	};
 });
