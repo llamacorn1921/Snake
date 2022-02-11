@@ -9,4 +9,7 @@ p {
     margin: 0;
     display: inline;
 }
-
+#version {
+    color: hotpink;
+    font-style: italic;
+}
