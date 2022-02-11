@@ -77,7 +77,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
                 ctx: c.ctx
             };
             apples.pos = apple.init(c.ctx);
-            console.log(apples);
+            // console.log(apples);
             snake.init(c.ctx);
             loop();
         },

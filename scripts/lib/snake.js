@@ -15,7 +15,7 @@ define(function () {
 	};
 	let alive = true;
 	/**@type {string} */
-	let direction = null;
+	let direction = 'left';
 	function setDir(dir) {
 		direction = dir;
 		dirID.innerHTML = direction;
@@ -53,7 +53,10 @@ define(function () {
 				default:
 					break;
 			}
-		}
+        }
+        setTimeout(() => {
+            run();
+        }, 200);
 	}
 	return {
 		// functions game script has access to
@@ -61,7 +64,7 @@ define(function () {
 			// sets ctx and creates snake
 			ctx = c;
 			c.fillRect(snake.x, snake.y, snake.width, snake.height);
-			setInterval(run, 500);
+            run();
 		},
 		draw: function () {
 			//  draws snake
