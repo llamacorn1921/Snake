@@ -1,10 +1,10 @@
 define(function () {
+    const posID = document.getElementById('snakeCords'); // span tag for snake coords
+    const dirID = document.getElementById('snakeDir'); // span tag for snake direction
 	const def = { // default pos
 		x: 250,
 		y: 250,
     };
-    let ctx;
-    const posDis = document.getElementById('snakeCords'); // ignore
 	let snake = { // start pos and size
 		x: 250,
 		y: 250,
@@ -13,6 +13,11 @@ define(function () {
 	};
     let killed = false;
     let dead = false;
+    let dir;
+    function setDir (d) {
+        let dir = d;
+        dirID.innerHTML = d;
+    }
     function destroy() {
         dead = true;
     }
@@ -20,13 +25,11 @@ define(function () {
         ctx.fillStyle = '#006400';
         ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
 	}
-
 	function update(x, y) { // updates x or y
 		snake.x += x;
         snake.y += y;
 		posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`; // ignore
 	}
-
 	return { // functions game script has access to
 		init: function (c) { // sets ctx and creates snake
 			ctx = c;
@@ -36,7 +39,7 @@ define(function () {
             draw();
             return { x: snake.x, y: snake.y }; // updates snakes pos in game file
 		},
-        reset: function () { // ignore
+        reset: function () { // resets snakes
             posDis.innerHTML = "Game Rest";
             killed = false;
 			snake.x = def.x;
@@ -55,6 +58,7 @@ define(function () {
                             destroy();
                             break;
                         }
+                        setDir('up');
                         update(0, -5);
                         break;
                     case 'ArrowDown':
@@ -64,6 +68,7 @@ define(function () {
                             destroy();
                             break;
                         }
+                        setDir('down');
                         update(0, 5);
                         break;
                     case 'ArrowLeft':
@@ -73,6 +78,7 @@ define(function () {
                             destroy();
                             break;
                         }
+                        setDir('left');
                         update(-5, 0);
                         break;
                     case 'ArrowRight':
@@ -82,6 +88,7 @@ define(function () {
                             destroy();
                             break;
                         }
+                        setDir('right');
                         update(5, 0);
                         break;
                     case ' ':
@@ -90,13 +97,11 @@ define(function () {
                         posDis.innerHTML = `X: ${snake.x}, Y: ${snake.y}`;
                         console.log('Snake Reset');
                         break;
+                        setDir('Not moving');
                     default:
                         break;
                 }
             }
-        },
-        eat: function () {
-            
         }
 	};
 });

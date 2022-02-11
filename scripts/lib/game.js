@@ -70,22 +70,8 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             $('#score').text(score++);
         }
     }
-    const timerID = document.getElementById('timer');
-    let sec = 15;
-	function time () {
-		sec--;
-		if (sec === 0) {
-			sec = 15;
-            _info = apple.destory();
-            apples.pos = _info.pos;
-			timerID.innerHTML = '00:00';
-			setTimeout(1000);
-		}
-		timerID.innerHTML = `00:${ sec.toString().padStart(2, '0') }`;
-	}
     return {
         init: function (c) {
-            
             ctx = c.ctx;
             cInfo = {
                 canvas: c.canvas,
@@ -97,7 +83,6 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             console.log(apples);
             snake.init(c.ctx);
             loop();
-            setInterval(time, 1000);
         },
         input: function (e) {
             snake.move(e);
