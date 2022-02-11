@@ -1,0 +1,2 @@
+https://blog.sklambert.com/html5-canvas-game-2d-collision-detection
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors

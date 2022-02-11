@@ -1,0 +1,12 @@
+body {
+    background-color: cyan;
+    overflow: hidden;
+}
+canvas {
+    background-color: lime;
+}
+p {
+    margin: 0;
+    display: inline;
+}
+
