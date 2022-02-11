@@ -12,10 +12,10 @@ define(function () {
 		height: 20,
 	};
     let alive = true;
-    let dir = 'up';
+    let direction;
     function setDir (d) {
-        dir = d;
-        dirID.innerHTML = dir;
+        direction = d;
+        dirID.innerHTML = direction;
     }
     function destroy() {
         alive = false;
@@ -32,7 +32,7 @@ define(function () {
     }
     function run () {
         while (alive) {
-            switch (dir) {
+            switch (direction) {
                 case 'up':
                     update(0, -5);
                     break;
