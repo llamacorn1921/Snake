@@ -5,7 +5,7 @@ define(function () {
 	};
 	let ctx;
 	let pos;
-	const appleTime = document.getElementById('appleTime');
+	
 	function genPos() { // generate random position
 		let _pos = Math.floor(Math.random() * 400);
 		// if (225 < pos && pos < 285) {

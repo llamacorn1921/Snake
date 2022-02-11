@@ -4,6 +4,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     let _info;
     let eaten = false;
     let score = 1;
+    const countDown = document.getElementById('appleTime');
     /** snke info */
     let snakeStatus = {
         width: 20,
@@ -22,7 +23,19 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             y: null
         }
     };
-
+    let sec = 15;
+    function timer () {
+        if (sec === 0) {
+            sec = 15;
+            countDown.innerHTML = '00:00';
+            apple.destory();
+        }
+        setTimeout(() => {
+            sec--;
+            countDown.innerHTML = `00:${ sec }`;
+            timer();
+        }, 1000);
+    }
     function clear() { /**reset for render */
         ctx.clearRect(0, 0, cInfo.width, cInfo.height);
     }
@@ -82,7 +95,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
             console.log(apples);
             snake.init(c.ctx);
             loop();
-            apple.timed();
+            timer();
         },
         input: function (e) {
             snake.move(e);
