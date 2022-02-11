@@ -54,9 +54,9 @@ define(function () {
 					break;
 			}
         }
-        setTimeout(() => {
-            run();
-        }, 200);
+        // setTimeout(() => {
+        //     run();
+        // }, 200);
 	}
 	return {
 		// functions game script has access to
@@ -64,7 +64,9 @@ define(function () {
 			// sets ctx and creates snake
 			ctx = c;
 			c.fillRect(snake.x, snake.y, snake.width, snake.height);
-            run();
+            setInterval(() => {
+                run
+            }, 200);
 		},
 		draw: function () {
 			//  draws snake
