@@ -27,6 +27,7 @@ define(['jquery', './lib/snake', './lib/apple'], function ($, snake, apple) {
     function timer () {
         if (sec === 0) {
             sec = 15;
+            timer();
         }
         setTimeout(() => {
             sec--;
