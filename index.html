@@ -2,6 +2,7 @@
 <html>
     <head>
         <!-- https://requirejs.org/docs/release/2.3.6/minified/require.js -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Snake</title>
         <script data-main='./scripts/main' src='./scripts/src/require.js'></script>
         <!-- <script data-main='./scripts/main' src='https://requirejs.org/docs/release/2.3.6/minified/require.js'></script> -->
@@ -15,5 +16,8 @@
         <p>Score: <span id='score'>0</span></p>
         <br>
         <canvas id='scene' width='500' height='500'></canvas>
+        <br>
+        <p>For mobile users</p>
+        <button id="up">Up</button>
     </body>
 </html>

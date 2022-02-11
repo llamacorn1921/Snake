@@ -13,3 +13,7 @@ p {
     color: hotpink;
     font-style: italic;
 }
+
+#up {
+    width: 60%
+}
