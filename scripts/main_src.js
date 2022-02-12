@@ -3,7 +3,7 @@ requirejs.config({
 	paths: {
 		// jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min',
 		jquery: './src/jquery',
-		game: './lib/game',
+		game: './lib/game'
     },
     waitSeconds: 5
 });
