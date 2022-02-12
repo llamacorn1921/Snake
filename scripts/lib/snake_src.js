@@ -14,8 +14,8 @@ define(function () {
 			x: 250,
 			y: 250,
 		},
-		width: 20,
-		height: 20,
+		width: 5,
+		height: 5,
 	};
 	let alive = true;
 	let dead = false;
@@ -26,13 +26,13 @@ define(function () {
 		if (alive) {
 			switch (direction) {
 				case 'up':
-					return { x: 0, y: -1 };
+					return { x: 0, y: -5 };
 				case 'down':
-					return { x: 0, y: 1 };
+					return { x: 0, y: 5 };
 				case 'left':
-					return { x: -1, y: 0 };
+					return { x: -5, y: 0 };
 				case 'right':
-					return { x: 1, y: 0 };
+					return { x: 5, y: 0 };
 				case null:
 					return { x: 0, y: 0 };
 				default:
@@ -50,19 +50,19 @@ define(function () {
 	}
 	function testLife() {
 		switch (alive) {
-			case snake.pos.y === 0:
+			case snake.pos.y < 0:
 				alive = false;
 				destroy();
 				break;
-			case snake.pos.y === 480:
+			case snake.pos.y > 500:
 				alive = false;
 				destroy();
 				break;
-			case snake.pos.x === 0:
+			case snake.pos.x < 0:
 				alive = false;
 				destroy();
 				break;
-			case snake.pos.x === 480:
+			case snake.pos.x > 500:
 				alive = false;
 				destroy();
 				break;

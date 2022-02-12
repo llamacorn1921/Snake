@@ -7,8 +7,8 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
     let score = 1;
     /** snke info */
     let snakeStatus = {
-        width: 20,
-        height: 20,
+        width: 5,
+        height: 5,
         pos: {
             x: null,
             y: null
@@ -16,8 +16,8 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
     };
     /** apple info */
     let apples = {
-        width: 11,
-        height: 11,
+        width: 5,
+        height: 5,
         pos: {
             x: null,
             y: null
@@ -60,6 +60,7 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
             document.getElementById('pause').innerHTML = 'Pause';
         }
     });
+    const audio = document.getElementById('munch');
     /** detects if snake is at apple */
     /* WARNING: must have only one apple each time or collision wont work */
     function collision() {
@@ -70,10 +71,12 @@ define(['./lib/snake', './lib/apple'], function (snake, apple) {
             if (eaten === false) { // not being used yet
                 eaten = true;
             }
+            audio.play();
             _info = apple.destroy();
             apples.pos = _info.pos;
             eaten = _info.eaten;
             document.getElementById('score').innerHTML = score++;
+            // cInfo.canvas
         }
     }
     return {

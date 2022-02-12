@@ -1,7 +1,8 @@
 .jshintrc
 node_modules/
 .vscode/
-
+misc/audio.mp3
+misc/jumpscare.gif
 scripts/lib/apple_src.js
 scripts/lib/game_src.js
 scripts/lib/snake_src.js

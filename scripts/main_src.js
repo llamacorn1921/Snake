@@ -10,6 +10,7 @@ requirejs.config({
 require(['jquery', 'game'], function ($, game) {
 	/** Test if scripts have loaded */
 	const canvas = document.getElementById('scene');
+	
 	/** sets all canvas info for other scripts */
 	let cInfo = { 
 		canvas: canvas,
