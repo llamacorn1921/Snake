@@ -1,0 +1,1 @@
+requirejs.config({baseUrl:"scripts",paths:{jquery:"./src/jquery",game:"./lib/game"},waitSeconds:5});require(["jquery","game"],function(e,t){const n=document.getElementById("scene");let i={canvas:n,width:n.offsetWidth,height:n.offsetHeight,ctx:n.getContext("2d")};e(document).ready(()=>{t.init(i);e(document).keydown(e=>{t.input(e.key)})})});

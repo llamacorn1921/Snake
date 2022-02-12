@@ -47,7 +47,6 @@ define(function () {
 			dt = 'You killed the 🐍!!! YOU MONSTER';
 			deathMessage = true;
 		}
-		
 	}
 	function testLife() {
 		switch (alive) {
@@ -64,7 +63,6 @@ define(function () {
 				destroy();
 				break;
 			case snake.pos.x === 480:
-				// snake.pos.x = 480;
 				alive = false;
 				destroy();
 				break;

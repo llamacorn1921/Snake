@@ -1,3 +1,9 @@
 .jshintrc
 node_modules/
 .vscode/
+
+scripts/lib/apple_src.js
+scripts/lib/game_src.js
+scripts/lib/snake_src.js
+scripts/main_src.js
+build.sh
