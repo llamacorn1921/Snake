@@ -1,0 +1,1 @@
+define(function(){const t=document.getElementById("munch");function n(){let n=new window.AudioContext;let e={content:n,source:n.createMediaElementSource(t),gain:n.createGain(),media:t,ampilfy:function(){return e.gain.gain.value}};e.source.connect(e.gain);e.gain.connect(n.destination);e.ampilfy(10);return e}return{play:function(){n();t.pause();t.currentTime=0;t.play()}}});
