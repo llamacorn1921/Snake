@@ -1,1 +1,1 @@
-define(["http://reverbjs.org/reverb.js"],function(e){const n=document.getElementById("munch");return{init:function(){console.log(e)},play:function(){n.pause();n.currentTime=0;n.play()}}});
+define(["//reverbjs.org/reverb.js"],function(e){const n=document.getElementById("munch");return{init:function(){console.log(e)},play:function(){n.pause();n.currentTime=0;n.play()}}});
