@@ -1,1 +1,1 @@
-define(["reverb"],function(n){const e=document.getElementById("munch");return{init:function(){console.log(n)},play:function(){e.pause();e.currentTime=0;e.play()}}});
+define(["./src/reverb"],function(n){const e=document.getElementById("munch");return{init:function(){console.log(n)},play:function(){e.pause();e.currentTime=0;e.play()}}});
