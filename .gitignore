@@ -4,6 +4,6 @@ node_modules/
 misc/audio.mp3
 misc/jumpscare.gif
 
-**/*_src.js
+
 build.sh
-scripts/main_src.js
+
