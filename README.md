@@ -5,7 +5,7 @@ A simple snake game using html5 canvas
 
 I know the code is messy
 
-Whaat I am using:
+What I am using:
 	jquery
 	requirejs
 	Reverb.js: http://reverbjs.org (http://reverbjs.org/reverb.min.js)
